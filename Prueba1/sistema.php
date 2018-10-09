@@ -3,11 +3,17 @@ session_start();
 
 if(!empty($_SESSION['id']) && !empty($_SESSION['pass']) ){
     require_once 'LIGA3/LIGA.php';
+    BD('localhost','root','','base');
     HTML::cabeceras(array('title'=>'Sistema seguro', 'description'=> 'lo que sea'));
     //echo 'usuario admitido';
     $body = array('contenedor' => array('uno'=> '<p>Usuario valido</p>',   //crea una div dentro de otra
                                         'dos' => '<a href="cerrar.php">Cerrar sesión</a>' 
                                         ));
+    
+    $usuario= LIGA('usuarios');
+    $columna=('id,nombre,fecha');
+    HTML::tabla($usuario,false,$columna);
+    
     HTML::cuerpo($body);
     
     HTML::pie();
