@@ -12,7 +12,11 @@ if(!empty($_SESSION['id']) && !empty($_SESSION['pass']) ){
     
     $usuario= LIGA('usuarios');
     $columna=('id,nombre,fecha');
-    HTML::tabla($usuario,false,$columna);
+    
+    $col=array('Usuario' => '@[nombre]',
+              'Hora de registro' => '@{substr("@[fecha]",11,19)}@' );
+    
+    HTML::tabla($usuario,'USUARIOS REGISTRADOS',$col);
     
     HTML::cuerpo($body);
     
