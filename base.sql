@@ -19,8 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `base`
 --
-CREATE DATABASE `base` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `base`;
+CREATE DATABASE `prueba1` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `prueba1`;
 
 -- --------------------------------------------------------
 
@@ -36,6 +36,9 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `nombre` (`nombre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+INSERT INTO `usuarios` (`id`, `nombre`, `pass`, `fecha`) VALUES
+(1, 'jessica', '202cb962ac59075b964b07152d234b70', '2018-09-25 07:52:51');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
